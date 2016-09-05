@@ -13,7 +13,7 @@
 # limitations under the License.
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-LOCAL_KERNEL := device/sony/tone_dora/kernel
+LOCAL_KERNEL := device/sony/dora/kernel
 else
 LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif

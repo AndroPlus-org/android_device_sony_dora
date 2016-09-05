@@ -25,7 +25,7 @@ BOARD_KERNEL_PAGESIZE := 4096
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02200000 --tags_offset 0x02000000
 
 # prebuilt kernel
-TARGET_PREBUILT_KERNEL := device/sony/tone-dora/kernel
+TARGET_PREBUILT_KERNEL := device/sony/dora/kernel
 
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 5513412608
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 57436708864
@@ -36,7 +36,7 @@ TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 
 RECOVERY_SDCARD_ON_DATA := true
-TARGET_RECOVERY_FSTAB = device/sony/tone-dora/recovery.fstab
+TARGET_RECOVERY_FSTAB = device/sony/dora/recovery.fstab
 TW_THEME := portrait_hdpi
 TW_HAS_NO_RECOVERY_PARTITION := true
 TW_IGNORE_ABS_MT_TRACKING_ID := true

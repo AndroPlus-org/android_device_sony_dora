@@ -13,13 +13,13 @@
 # limitations under the License.
 
 # Inherit from those products. Most specific first.
-$(call inherit-product, device/sony/tone_dora/device.mk)
+$(call inherit-product, device/sony/dora/device.mk)
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 PRODUCT_COPY_FILES += \
-    device/sony/tone_dora/kernel:kernel
+    device/sony/dora/kernel:/kernel
 
 PRODUCT_PROPERTY_OVERRIDES := \
     ro.sf.lcd_density=480 \

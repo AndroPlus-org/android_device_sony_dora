@@ -18,6 +18,6 @@ $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 # Enhanced NFC
 $(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
 
-$(call inherit-product, device/sony/tone_dora/full_tone_dora.mk)
+$(call inherit-product, device/sony/dora/full_dora.mk)
 
-PRODUCT_NAME := tone_dora
+PRODUCT_NAME := cm_dora
