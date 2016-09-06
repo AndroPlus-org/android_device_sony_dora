@@ -21,6 +21,7 @@ on early-init
 on fs
     # needed to make qseecomd work in recovery
     symlink /dev/block/platform/soc/7464900.sdhci /dev/block/bootdevice
+    symlink /system/vendor /vendor
     chmod 0660 /dev/qseecom
     chown system drmrpc /dev/qseecom
     chmod 0664 /dev/ion
@@ -28,7 +29,20 @@ on fs
     
     write /sys/kernel/debug/clearpad/hwtest "XP"
     
+    wait /dev/block/bootdevice/by-name/persist
+    mount ext4 /dev/block/bootdevice/by-name/persist /persist nosuid nodev barrier=1
+    restorecon_recursive /persist
+    mkdir /persist/data 0700 system system
+
+    wait /dev/block/bootdevice/by-name/dsp
+    mount ext4 /dev/block/bootdevice/by-name/dsp /dsp ro nosuid nodev barrier=1
+
+    wait /dev/block/bootdevice/by-name/modem
+    mount vfat /dev/block/bootdevice/by-name/modem /firmware ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0
+    
     start pulldecryptfiles
+    
+    symlink /firmware/image /vendor/firmware
 
 on boot
     write /sys/class/android_usb/android0/idVendor 0FCE
