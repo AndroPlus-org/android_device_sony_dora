@@ -47,6 +47,11 @@ on fs
 on boot
     write /sys/class/android_usb/android0/idVendor 0FCE
     write /sys/class/android_usb/android0/idProduct 5${ro.usb.pid_suffix}
+    
+    write /sys/devices/virtual/input/clearpad/wakeup_gesture 1
 
 on property:ro.crypto.state=encrypted
     start sbinqseecomd
+
+on property:ro.crypto.fs_crypto_blkdev=/dev/block/dm-0
+    stop sbinqseecomd
